@@ -1,0 +1,25 @@
+# ===== Node =====
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ===== Environment =====
+.env
+.env.*
+
+# ===== Logs =====
+*.log
+error_log.txt
+
+# ===== Uploads =====
+job-site-backend/uploads/
+
+# ===== Build =====
+dist/
+build/
+
+# ===== IDE & OS =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
