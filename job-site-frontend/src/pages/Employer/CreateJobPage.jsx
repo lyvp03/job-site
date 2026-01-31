@@ -120,7 +120,7 @@ const CreateJobPage = () => {
             setSuccess('Đăng tin tuyển dụng thành công!');
             
             setTimeout(() => {
-                navigate('/employer/jobs/manage');
+                navigate('/employer/jobs/manage?refresh=true');
             }, 1500);
 
         } catch (err) {

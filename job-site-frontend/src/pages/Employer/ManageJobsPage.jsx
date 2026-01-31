@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { jobAPI } from '../../api/jobAPI';
 import Card from '../../components/common/Card';
 import Button from '../../components/common/Button';
@@ -7,6 +7,7 @@ import Alert from '../../components/common/Alert';
 
 const ManageJobsPage = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const [loading, setLoading] = useState(true);
     const [jobs, setJobs] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([]);
@@ -19,6 +20,13 @@ const ManageJobsPage = () => {
     useEffect(() => {
         fetchJobs();
     }, []);
+
+    // Check for refresh parameter
+    useEffect(() => {
+        if (searchParams.get('refresh') === 'true') {
+            fetchJobs();
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         filterJobs();

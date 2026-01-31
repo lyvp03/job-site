@@ -85,7 +85,7 @@ const ApplyJobModal = ({ isOpen, onClose, jobTitle, onSubmit, isSubmitting }) =>
             
             <div className="fixed inset-0 z-[9999] w-screen overflow-y-auto flex items-center justify-center p-4 sm:p-0">
                 {/* Modal Panel */}
-                <div className="relative transform overflow-hidden rounded-2xl bg-white dark:bg-[#2a1e32] text-left shadow-2xl transition-all w-full max-w-2xl border border-gray-200 dark:border-white/5">
+                <div className="relative transform overflow-hidden rounded-2xl bg-white dark:bg-[#2a1e32] text-left shadow-2xl transition-all w-full max-w-lg border border-gray-200 dark:border-white/5">
                     {/* Decorative Top Border/Gradient */}
                     <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#ad2bee] to-transparent opacity-50"></div>
                     
@@ -102,19 +102,19 @@ const ApplyJobModal = ({ isOpen, onClose, jobTitle, onSubmit, isSubmitting }) =>
                         </button>
                     </div>
 
-                    <div className="px-8 pt-8 pb-6">
+                    <div className="px-6 pt-6 pb-4">
                         {/* Header Content */}
-                        <div className="mb-8">
-                            <h3 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white tracking-tight mb-2" id="modal-title">
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold leading-tight text-gray-900 dark:text-white tracking-tight mb-1" id="modal-title">
                                 Ứng tuyển vị trí
                             </h3>
-                            <p className="text-base text-gray-600 dark:text-gray-400">
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
                                 {jobTitle}
                             </p>
                         </div>
 
                         {/* Form Content */}
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-4">
                             {/* Field 1: Full Name */}
                             <FormField
                                 label="Họ và tên"
@@ -141,10 +141,10 @@ const ApplyJobModal = ({ isOpen, onClose, jobTitle, onSubmit, isSubmitting }) =>
                             />
 
                             {/* Field 3: Resume Upload */}
-                            <div className="p-6 rounded-2xl bg-white dark:bg-[#1c1022]/50 border border-gray-200 dark:border-white/5">
-                                <label className="flex flex-col gap-3">
+                            <div className="p-4 rounded-lg bg-white dark:bg-[#1c1022]/50 border border-gray-200 dark:border-white/5">
+                                <label className="flex flex-col gap-2">
                                     <div className="flex justify-between items-baseline">
-                                        <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">CV/Resume *</span>
+                                        <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">CV/Resume *</span>
                                         <span className="text-xs text-gray-400 dark:text-[#b09db9]">PDF hoặc Word</span>
                                     </div>
                                     <div className="relative">
@@ -169,10 +169,10 @@ const ApplyJobModal = ({ isOpen, onClose, jobTitle, onSubmit, isSubmitting }) =>
                             </div>
 
                             {/* Field 4: Cover Letter */}
-                            <div className="p-6 rounded-2xl bg-white dark:bg-[#1c1022]/50 border border-gray-200 dark:border-white/5">
-                                <label className="flex flex-col gap-3">
+                            <div className="p-4 rounded-lg bg-white dark:bg-[#1c1022]/50 border border-gray-200 dark:border-white/5">
+                                <label className="flex flex-col gap-2">
                                     <div className="flex justify-between items-baseline">
-                                        <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Thư xin việc</span>
+                                        <span className="text-xs font-semibold text-gray-700 dark:text-gray-200">Thư xin việc</span>
                                         <span className="text-xs text-gray-400 dark:text-[#b09db9]">Tối đa 500 ký tự</span>
                                     </div>
                                     <textarea 
@@ -181,7 +181,7 @@ const ApplyJobModal = ({ isOpen, onClose, jobTitle, onSubmit, isSubmitting }) =>
                                         disabled={isSubmitting}
                                         maxLength={500}
                                         placeholder="Giới thiệu bản thân, kinh nghiệm và lý do bạn phù hợp với vị trí này..."
-                                        className="w-full min-h-[140px] p-4 rounded-lg bg-gray-50 dark:bg-[#1c1022]/50 border border-gray-300 dark:border-[#4b3b54] text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#b09db9]/50 font-medium focus:outline-none focus:border-[#E2ADF2] focus:ring-4 focus:ring-[#E2ADF2]/20 transition-all duration-200 resize-y disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full min-h-[100px] p-3 rounded-lg bg-gray-50 dark:bg-[#1c1022]/50 border border-gray-300 dark:border-[#4b3b54] text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-[#b09db9]/50 font-medium focus:outline-none focus:border-[#E2ADF2] focus:ring-4 focus:ring-[#E2ADF2]/20 transition-all duration-200 resize-y disabled:opacity-50 disabled:cursor-not-allowed"
                                     />
                                 </label>
                                 <div className="flex justify-end mt-2">
@@ -197,24 +197,24 @@ const ApplyJobModal = ({ isOpen, onClose, jobTitle, onSubmit, isSubmitting }) =>
                     </div>
 
                     {/* Footer Actions */}
-                    <div className="bg-gray-50 dark:bg-[#1c1022]/30 px-8 py-6 sm:flex sm:flex-row-reverse sm:gap-3 border-t border-gray-200 dark:border-white/5">
+                    <div className="bg-gray-50 dark:bg-[#1c1022]/30 px-6 py-4 sm:flex sm:flex-row-reverse sm:gap-2 border-t border-gray-200 dark:border-white/5">
                         <button 
                             onClick={handleSubmit}
                             disabled={isSubmitting}
                             type="button"
-                            className="inline-flex w-full justify-center items-center gap-2 rounded-lg bg-gradient-to-r from-[#9d1dd4] to-[#ad2bee] px-6 py-4 text-sm font-extrabold text-white shadow-lg shadow-[#ad2bee]/40 hover:shadow-lg hover:shadow-[#ad2bee]/50 hover:from-[#8d0dc0] hover:to-[#9d1dd4] sm:w-auto transition-all focus:outline-none focus:ring-2 focus:ring-[#ad2bee] focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-[0.98] uppercase tracking-wide"
+                            className="inline-flex w-full justify-center items-center gap-2 rounded-lg bg-gradient-to-r from-[#9d1dd4] to-[#ad2bee] px-4 py-3 text-xs font-extrabold text-white shadow-lg shadow-[#ad2bee]/40 hover:shadow-lg hover:shadow-[#ad2bee]/50 hover:from-[#8d0dc0] hover:to-[#9d1dd4] sm:w-auto transition-all focus:outline-none focus:ring-2 focus:ring-[#ad2bee] focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-[0.98] uppercase tracking-wide"
                         >
-                            <Check className="w-5 h-5" />
-                            Ứng tuyển ngay
+                            <Check className="w-4 h-4" />
+                            Ứng tuyển
                         </button>
                         <button 
                             onClick={handleClose}
                             disabled={isSubmitting}
                             type="button"
-                            className="mt-3 inline-flex w-full justify-center items-center gap-2 rounded-lg bg-white dark:bg-[#2a1e32] border border-gray-300 dark:border-[#4b3b54] px-6 py-4 text-sm font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-[#3a2e42] sm:mt-0 sm:w-auto transition-all focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="mt-2 inline-flex w-full justify-center items-center gap-2 rounded-lg bg-white dark:bg-[#2a1e32] border border-gray-300 dark:border-[#4b3b54] px-4 py-3 text-xs font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-[#3a2e42] sm:mt-0 sm:w-auto transition-all focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            <Save className="w-5 h-5" />
-                            Lưu nháp
+                            <Save className="w-4 h-4" />
+                            Hủy
                         </button>
                     </div>
                 </div>

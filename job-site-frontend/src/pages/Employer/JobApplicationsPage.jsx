@@ -30,10 +30,11 @@ const JobApplicationsPage = () => {
         try {
             // Fetch job info
             const jobResponse = await jobAPI.getJobById(jobId);
-            setJobInfo(jobResponse.data?.job);
+            setJobInfo(jobResponse.data?.job || jobResponse.data?.data);
 
             // Fetch applications
             const appsResponse = await applicationAPI.getJobApplications(jobId);
+            console.log('Applications response:', appsResponse); // Debug
             setApplications(appsResponse.data?.data || []);
         } catch (err) {
             console.error('Fetch error:', err);

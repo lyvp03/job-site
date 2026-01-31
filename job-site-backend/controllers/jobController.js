@@ -62,11 +62,11 @@ export const getMyJobs=async(req, res)=>{
             return res.status(403).json({message:"You don't have permission."});
         }
         const jobs=await Job.find({createdBy: req.user._id})
-            .sort({createAt:-1});
+            .sort({createdAt:-1});
         res.status(200).json({
             success:true,
             count: jobs.length,
-            data: jobs
+            jobs: jobs
         });
     }catch (error){
         res.status(500).json({message:`Server error:: ${error.message}`});
@@ -334,12 +334,16 @@ export const getJobById=async(req,res)=>{
         if(!job){
             return res.status(404).json({message:"Job not found."});
         }
-        if(job.deadline<new Date()){
+        // Only check deadline for public access (not for employer viewing their own job)
+        if(job.deadline<new Date() && req.user && job.createdBy.toString() !== req.user._id.toString()){
             return res.status(404).json({message:"Job expired."});
         }
-        //view increase
+        //view increase - use updateOne to bypass validation
+        await Job.updateOne(
+            { _id: id },
+            { $inc: { views: 1 } }
+        );
         job.views=(job.views||0)+1;
-        await job.save();
         //res
         res.status(200).json({
             success: true,
